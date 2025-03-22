@@ -23,28 +23,28 @@ public class Vacation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     //Maps the id field to the vacation_id column in database
-    @Column(name="vacation_id")
+    @Column(name="vacation_id", nullable = false)
     private Long id;
 
     //Maps the vacation_title field to the vacation_title column in database
-    @Column(name="vacation_title")
+    @Column(name="vacation_title", nullable = false)
     private String vacation_title;
 
     //Maps the description field to the description column in database
-    @Column(name="description")
+    @Column(name="description", nullable = false)
     private String description;
 
     //Maps the travel_price field to the travel_fare_price column in database
-    @Column(name="travel_fare_price")
+    @Column(name="travel_fare_price", nullable = false)
     private BigDecimal travel_price;
 
     //Maps the image_URL field to the image_url column in database
-    @Column(name="image_url")
+    @Column(name="image_url", nullable = false)
     private String image_URL;
 
     //Maps the create_date field to the create_date column in the database
 
-    @Column(name="create_date")
+    @Column(name="create_date", updatable = false)
     @CreationTimestamp
     private Date create_date;
 

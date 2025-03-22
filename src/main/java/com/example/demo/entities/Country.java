@@ -22,15 +22,15 @@ public class Country {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     //Maps the id field to the country_id column in database
-    @Column(name="country_id")
+    @Column(name="country_id", nullable = false)
     private Long id;
 
     //Maps the country_name field to the country column in the database
-    @Column(name="country")
+    @Column(name="country", nullable = false)
     private String country_name;
 
     //Maps the create date field to the create_date column in database
-    @Column(name="create_date")
+    @Column(name="create_date", updatable = false)
     @CreationTimestamp
     private Date createDate;
 

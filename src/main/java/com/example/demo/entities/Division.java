@@ -21,11 +21,11 @@ public class Division {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     //Maps the id field to the division_id column in database
-    @Column(name="division_id")
+    @Column(name="division_id", nullable = false)
     private Long id;
 
     //Maps division_name field to the division column in database
-    @Column(name="division")
+    @Column(name="division", nullable = false)
     private String division_name;
 
     //Maps the createDate field to the create_date column in database
@@ -35,7 +35,7 @@ public class Division {
     private Date createDate;
 
     //Maps the lastUpdate field to the last_update column in the database
-    @Column(name="last_update")
+    @Column(name="last_update", updatable = false)
     @UpdateTimestamp
     private Date lastUpdate;
 

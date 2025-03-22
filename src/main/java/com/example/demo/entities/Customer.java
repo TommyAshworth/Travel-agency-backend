@@ -21,31 +21,31 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     //Maps id field to the customer_id column in database
-    @Column(name="customer_id")
+    @Column(name="customer_id", nullable = false)
     private Long id;
 
     //Maps firstName to the customer_first_name column in database
-    @Column(name="customer_first_name")
+    @Column(name="customer_first_name", nullable = false)
     private String firstName;
 
     //Maps the LastName field to the customer_last_name column in database
-    @Column(name="customer_last_name")
+    @Column(name="customer_last_name", nullable = false)
     private String lastName;
 
     //Maps the address field to the address column in database
-    @Column(name="address")
+    @Column(name="address", nullable = false)
     private String address;
 
     //Maps the postal_code field to the postal_code column in database
-    @Column(name="postal_code")
+    @Column(name="postal_code", nullable = false)
     private String postal_code;
 
     //Maps the phone field to the phone column in database
-    @Column(name="phone")
+    @Column(name="phone", nullable = false)
     private String phone;
 
     //maps the createDate field to the create_date column in database
-    @Column(name="create_date")
+    @Column(name="create_date", updatable = false)
     @CreationTimestamp
     private Date createDate;
 
@@ -56,7 +56,7 @@ public class Customer {
 
     //Defines ManyToOne relationship between Customer and Division entities
     @ManyToOne
-    @JoinColumn(name="division_id")
+    @JoinColumn(name="division_id", nullable = false, updatable = false)
     private Division division;
 
     //Defines OneToMany relationship between Customer and cart entities

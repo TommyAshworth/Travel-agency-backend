@@ -22,23 +22,23 @@ public class Excursion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     //Maps id field to the excursion_id column in database
-    @Column(name="excursion_id")
+    @Column(name="excursion_id", nullable = false)
     private Long id;
 
     //Maps excursion_title field to the excursion_title column in database
-    @Column(name="excursion_title")
+    @Column(name="excursion_title", nullable = false)
     private String excursion_title;
 
     //Maps excursion_price field to the  excursion_price column in database
-    @Column(name="excursion_price")
+    @Column(name="excursion_price", nullable = false)
     private BigDecimal excursion_price;
 
     //Maps image_URL field to the image_url column in database
-    @Column(name="image_url")
+    @Column(name="image_url", nullable = false)
     private String image_URL;
 
     //Maps create_date field to the create_date column in database
-    @Column(name="create_date")
+    @Column(name="create_date", updatable = false)
     @CreationTimestamp
     private Date create_date;
 
@@ -49,15 +49,15 @@ public class Excursion {
 
     //Defines a Many to one relationship between excursion and vacation entities
     @ManyToOne
-    @JoinColumn(name="vacation_id")
+    @JoinColumn(name="vacation_id", nullable = false)
     private Vacation vacation_title;
 
     //Defines a Many to many relationship between excursion and cartitem entities
     @ManyToMany
     @JoinTable(
             name="excursion_cartitem",
-            joinColumns=@JoinColumn(name="excursion_id"),
-            inverseJoinColumns=@JoinColumn(name="cart_item_id")
+            joinColumns=@JoinColumn(name="excursion_id", nullable = false),
+            inverseJoinColumns=@JoinColumn(name="cart_item_id", nullable = false)
     )
     private Set<CartItem> cartItems = new HashSet<>();
 }
